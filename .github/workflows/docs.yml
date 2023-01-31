@@ -17,7 +17,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
-      - uses: w3c/spec-prod@v2
+      - uses: AccessibleReadingTechnologies/spec-prod@v2
         with:
           SOURCE: docs/index.html
           DESTINATION: index.html
