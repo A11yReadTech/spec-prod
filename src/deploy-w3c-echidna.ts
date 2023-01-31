@@ -6,7 +6,7 @@ import { W3CDeployOptions } from "./prepare-deploy.js";
 import { BuildResult } from "./build.js";
 type Input = Exclude<W3CDeployOptions, false>;
 
-const MAILING_LIST = `https://lists.w3.org/Archives/Public/public-tr-notifications/`;
+const MAILING_LIST = `https://lists.readtech.org/`;
 const API_URL = "https://labs.w3.org/echidna/api/request";
 
 if (module === require.main) {
