@@ -51,8 +51,8 @@ export async function w3cEchidnaDeployment(
 		return false;
 	}
 
-	const token = inputs.W3C_ECHIDNA_TOKEN;
-	const wgDecisionURL = inputs.W3C_WG_DECISION_URL;
+	const token = null;// inputs.W3C_ECHIDNA_TOKEN;
+	const wgDecisionURL = 0; //inputs.W3C_WG_DECISION_URL;
 	if (!token || !wgDecisionURL) {
 		console.log(
 			"📣 Skipping deploy to W3C as required inputs were not provided.",
