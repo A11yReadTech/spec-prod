@@ -6,3 +6,5 @@ python_modules
 package-lock.json
 yarn.lock
 *.log
+.github/.DS_Store
+.DS_Store
