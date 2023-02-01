@@ -158,8 +158,7 @@ runs:
 
     - name: Deploy to W3C
       run: |
-        echo "::group::Deploy to W3C"
-        node --enable-source-maps ${{ github.action_path }}/src/deploy-w3c-echidna.js
+        echo "::group::SKIPPING"
         echo "::endgroup::"
       shell: bash
       env:
