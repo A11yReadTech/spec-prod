@@ -1,6 +1,6 @@
 name: Spec Prod
 author: "Sid Vishnoi"
-description: "Build ReSpec/Bikeshed specs, validate output and publish to w3.org or GitHub pages"
+description: "Build ReSpec/Bikeshed specs, validate output and publish to GitHub pages"
 
 branding:
   icon: archive
@@ -102,7 +102,7 @@ runs:
       with:
         path: |-
           ${{ steps.build.outputs.gh && fromJson(steps.build.outputs.gh).dest }}
-          ${{ steps.build.outputs.w3c && fromJson(steps.build.outputs.w3c).dest }}
+#          ${{ steps.build.outputs.w3c && fromJson(steps.build.outputs.w3c).dest }}
         name: spec-prod-result
         retention-days: 5
 
