@@ -22,29 +22,30 @@ inputs:
     required: false
   VALIDATE_MARKUP:
     description: Validate markup
-    default: true
+    default: false
   VALIDATE_WEBIDL:
     description: Validate Web IDL
-    default: true
-#  VALIDATE_PUBRULES:
-#    description: Validate against W3C Publication Rules
     default: false
-#  W3C_API_KEY:
-#    description: W3C API Key (required for VALIDATE_PUBRULES for now)
+  VALIDATE_PUBRULES:
+    description: Validate against W3C Publication Rules
+    default: false
+  W3C_API_KEY:
+    description: W3C API Key (required for VALIDATE_PUBRULES for now)
   GH_PAGES_BRANCH:
     description: Provide a branch name to deploy to GitHub pages.
+        default: gh-pages
   GH_PAGES_BUILD_OVERRIDE:
     description: Override Bikeshed's metadata or ReSpec's respecConfig for GitHub Pages deployment.
   GH_PAGES_TOKEN:
     description: GitHub Personal access token. Required only if the default GitHub actions token doesn't have enough permissions.
-#  W3C_ECHIDNA_TOKEN:
-#    description: Echidna token
-#  W3C_WG_DECISION_URL:
-#    description: A URL to the working group decision to use auto-publish (usually from a w3c mailing list).
-#  W3C_BUILD_OVERRIDE:
-#    description: Override Bikeshed's metadata or ReSpec's respecConfig for W3C deployment and validations.
-#  W3C_NOTIFICATIONS_CC:
-#    description: Comma separated list of email addresses to CC
+  W3C_ECHIDNA_TOKEN:
+    description: Echidna token
+  W3C_WG_DECISION_URL:
+    description: A URL to the working group decision to use auto-publish (usually from a w3c mailing list).
+  W3C_BUILD_OVERRIDE:
+    description: Override Bikeshed's metadata or ReSpec's respecConfig for W3C deployment and validations.
+  W3C_NOTIFICATIONS_CC:
+    description: Comma separated list of email addresses to CC
 
 runs:
   using: composite
@@ -156,14 +157,14 @@ runs:
         INPUTS_DEPLOY: ${{ steps.prepare.outputs.deploy && toJson(fromJson(steps.prepare.outputs.deploy).ghPages) }}
         OUTPUT_DIR: ${{ steps.build.outputs.gh && fromJson(steps.build.outputs.gh).root }}
 
-#    - name: Deploy to W3C
-#      run: |
-#        echo "::group::SKIPPING"
-#        echo "::endgroup::"
-#      shell: bash
-#      env:
-#        INPUTS_DEPLOY: ${{ steps.prepare.outputs.deploy && toJson(fromJson(steps.prepare.outputs.deploy).w3c) }}
-#        OUTPUTS_BUILD: ${{ steps.build.outputs.w3c && toJson(fromJson(steps.build.outputs.w3c)) }}
+    - name: Deploy to W3C
+      run: |
+        echo "::group::SKIPPING"
+        echo "::endgroup::"
+      shell: bash
+      env:
+        INPUTS_DEPLOY: ${{ steps.prepare.outputs.deploy && toJson(fromJson(steps.prepare.outputs.deploy).w3c) }}
+        OUTPUTS_BUILD: ${{ steps.build.outputs.w3c && toJson(fromJson(steps.build.outputs.w3c)) }}
 
     - name: End
       if: ${{ failure() }}
