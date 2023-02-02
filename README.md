@@ -1,10 +1,10 @@
-# Spec Prod | [Documentation 📘](https://w3c.github.io/spec-prod/)
+# Spec Prod | [Documentation 📘](https://A11yReadTech.github.io/spec-prod/)
 
 This GitHub Action lets you:
 
 - Build [ReSpec](https://github.com/w3c/respec) and [Bikeshed](https://github.com/tabatkins/bikeshed) specs.
 - Validate generated document's markup and check for broken hyperlinks.
-- Publish generated spec to GitHub Pages and/or w3.org (using Echidna).
+- Publish generated spec to GitHub Pages and/or ReadTech.org.
 
 ## Basic Usage
 
@@ -29,15 +29,15 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v3
-      - uses: w3c/spec-prod@v2
+      - uses: A11yReadTech/spec-prod@v2
         with:
           W3C_ECHIDNA_TOKEN: ${{ secrets.ECHIDNA_TOKEN }}
           # Replace following with appropriate value. See options.md for details.
-          W3C_WG_DECISION_URL: https://lists.w3.org/Archives/Public/public-group/2014JulSep/1234.html
+          W3C_WG_DECISION_URL: https://lists.readtech.org/
           # Usually, you want the following set too...
           W3C_BUILD_OVERRIDE: |
             shortName: your-specs-shortname-here
-            specStatus: WD
+            specStatus: ED
 ```
 
 ## More examples
